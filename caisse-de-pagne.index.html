@@ -1,0 +1,44 @@
+<h3>RIB</h3>
+            <p>IBAN : FR76 1234 5678 9123 4567 8901 234<br>BIC : CAISFRPPXXX</p>
+        </div>
+
+        <div id="budget-info" style="display: none;">
+            <h3>Budget</h3>
+            <p>Le budget de votre compte est de 15 000,00 € actuellement.</p>
+        </div>
+
+        <button class="btn" onclick="refreshPage()">Rafraîchir</button>
+    </div>
+
+    <script>
+        function showPaymentInfo() {
+            // Affiche les informations de paiement lorsque le compte est débloqué
+            document.getElementById("payment-info").style.display = "block";
+            document.getElementById("blocked-message").innerHTML = "Compte en cours de déblocage avec un paiement de 500€. Reste à payer : 1500€. Vous pouvez poursuivre avec votre paiement.";
+        }
+
+        function showReleve() {
+            document.getElementById("releve-info").style.display = "block"; // Affiche le relevé
+            document.getElementById("rib-info").style.display = "none"; // Cache les autres informations
+            document.getElementById("budget-info").style.display = "none";
+        }
+
+        function showRIB() {
+            document.getElementById("rib-info").style.display = "block"; // Affiche le RIB
+            document.getElementById("releve-info").style.display = "none"; // Cache les autres informations
+            document.getElementById("budget-info").style.display = "none";
+        }
+
+        function showBudget() {
+            document.getElementById("budget-info").style.display = "block"; // Affiche le budget
+            document.getElementById("releve-info").style.display = "none"; // Cache les autres informations
+            document.getElementById("rib-info").style.display = "none";
+        }
+
+        function refreshPage() {
+            document.getElementById("balance").innerText = "Compte bloqué";
+            alert("Le montant a été annulé. Le compte est bloqué.");
+        }
+    </script>
+</body>
+</html>
